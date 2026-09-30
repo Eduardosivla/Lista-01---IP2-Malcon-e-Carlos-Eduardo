@@ -15,12 +15,17 @@ void matrizElementos (int dimen, int matriz[][dimen]) {
 
 void tracoMatriz (int dimen, int matriz [dimen]) {
     
-int traco=0;
+    int traco=0;
 
     for (int i=0; i<dimen; i++) {
-        traco+=matriz[i][i];
-        }
+        for (int j=0; j<dimen; j++) {
 
+        traco+=matriz[i][j];
+
+        }  
+
+        printf("\nTraço da Matriz: %d\n", traco);
+    }
 }
 
 void matrizDeterminante (int dimen, int matriz[][dimen]) {
@@ -45,11 +50,15 @@ int somaDPrinci=1, somaDSecun=1, determ=0;
         printf("DETERMINANE: %d\n", determ);
     }
 
-    if (dimen>=3) {
+    if (dimen==3) {
+        
+        int matAux[dimen-1][dimen-1];
+
 
         for (int i=0; i<dimen; i++) {
-            for (int j=0; j<dimen; j++) {
+            for (int j=0; j<dimen-1; j++) {
 
+                matAux[i][j] = matriz[i][j];
 
 
             }
