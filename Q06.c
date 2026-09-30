@@ -13,7 +13,13 @@ void matrizElementos (int dimen, int matriz[][dimen]) {
     }
 }
 
-void tracoMatriz (int) {
+void tracoMatriz (int dimen, int matriz [dimen]) {
+    
+int traco=0;
+
+    for (int i=0; i<dimen; i++) {
+        traco+=matriz[i][i];
+        }
 
 }
 
@@ -58,13 +64,13 @@ int linhas, colunas, dimen=0;
 
 do {
 
-        printf("Informe Número de Linhas\n[DEVE SER IGUAL AO NÚMERO DE COLUNAS]: ");
+        printf("Informe Número de Linhas");
         scanf("%d", &linhas);
         
         printf("\n--------------\n");
 
 
-        printf("Informe o número de Colunas\n[DEVE SER IGUAL AO NÚMERO DE LINHAS]: ");
+        printf("Informe o número de Colunas");
         scanf("%d", &colunas);
         printf("\n");
 
