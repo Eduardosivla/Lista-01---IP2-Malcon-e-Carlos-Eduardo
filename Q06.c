@@ -20,8 +20,7 @@ int tracoMatriz (int dimen, int matriz[][dimen]) {
     for (int i=0; i<dimen; i++) {
         traco+=matriz[i][i];
 
-        }  
-    }
+        } 
     return traco;
 }   
 
@@ -65,8 +64,13 @@ int somaDPrinci=1, somaDSecun=1, determ=0;
         }
 
         if (dimen==3) {
-            printf("Determinante: %d\n", determinante3x3(matriz));
-            printf("Traço da matriz: %d\n", tracoMatriz(dimen, matriz));
+            printf("[Determinante: %d]\n\n", determinante3x3(matriz));
+            printf("[Traço da matriz: %d]\n\n", tracoMatriz(dimen, matriz));
+        }
+
+        if (dimen>=4) {
+            int matriz[dimen-1][dimen-1];
+
         }
     }
 
@@ -88,8 +92,7 @@ do {
         printf("\n");
 
         if (linhas != colunas) {
-            printf("[ERRO! O número de Linhas e Colunas devem ser iguais!]");
-            printf("\n--------------\n");
+            printf("\n[ERRO! O número de Linhas e Colunas devem ser iguais!]\n\n\n");
         }
         if (linhas == colunas) {
             dimen+=linhas; //recebe o tamanho da matriz quadrada e deixa somente em uma variavel para facilitar na escrita do código
