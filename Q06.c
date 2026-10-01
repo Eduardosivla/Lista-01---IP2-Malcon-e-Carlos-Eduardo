@@ -13,30 +13,29 @@ void matrizElementos (int dimen, int matriz[][dimen]) {
     }
 }
 
-void tracoMatriz (int dimen, int matriz[][dimen]) {
+int tracoMatriz (int dimen, int matriz[][dimen]) {
     
     int traco=0;
 
     for (int i=0; i<dimen; i++) {
-        for (int j=0; j<dimen; j++) {
-
         traco+=matriz[i][i];
 
         }  
     }
-        printf("\nTraço da Matriz: %d\n", traco);
-}
+    return traco;
+}   
 
 int determinante3x3 (int matriz[][3]) {
+
     int det;
     det = matriz[0][0] * matriz[1][1] * matriz[2][2] 
         + matriz[0][1] * matriz[1][2] * matriz[2][0]
         + matriz[0][2] * matriz[1][0] * matriz[2][1]
         - matriz[0][2] * matriz[1][1] * matriz[2][0]
-        - matriz[0][0] * matriz[1][2] * matriz[2][1] 
+        - matriz[0][1] * matriz[1][0] * matriz[2][2] 
         - matriz[0][0] * matriz[1][2] * matriz[2][1];
 
-        return 0;
+        return det;
 }
 
 void matrizDeterminante (int dimen, int matriz[][dimen]) {
@@ -44,7 +43,7 @@ void matrizDeterminante (int dimen, int matriz[][dimen]) {
 int somaDPrinci=1, somaDSecun=1, determ=0;
 
     if (dimen==1) {
-
+        printf("\nDeterminante: %d\n", matriz[0][0]);
     }
         if (dimen==2) { //determina uma matriz ondem 2x2
             printf("MATRIZ 2X2\n");
@@ -62,21 +61,12 @@ int somaDPrinci=1, somaDSecun=1, determ=0;
             }
             determ += somaDPrinci - somaDSecun;
             printf("DETERMINANE: %d\n", determ);
+            printf("Traço da matriz: %d\n", tracoMatriz(dimen, matriz));
         }
 
         if (dimen==3) {
-            
-            int matAux[dimen-1][dimen-1];
-
-
-            for (int i=0; i<dimen; i++) {
-                for (int j=0; j<dimen-1; j++) {
-
-                    matAux[i][j] = matriz[i][j];
-
-
-                }
-            }
+            printf("Determinante: %d\n", determinante3x3(matriz));
+            printf("Traço da matriz: %d\n", tracoMatriz(dimen, matriz));
         }
     }
 
@@ -87,13 +77,13 @@ int linhas, colunas, dimen=0;
 
 do {
 
-        printf("Informe Número de Linhas");
+        printf("Informe Número de Linhas: ");
         scanf("%d", &linhas);
         
-        printf("\n--------------\n");
+        printf("--------------\n");
 
 
-        printf("Informe o número de Colunas");
+        printf("Informe o número de Colunas: ");
         scanf("%d", &colunas);
         printf("\n");
 
