@@ -33,7 +33,7 @@ int NUM;
 
         if (NUM<=1) {
 
-            printf("\nERRO! o número de ve ser positivo e maior que [1]\n");
+            printf("\nERRO! o número deve ser positivo e maior que [1]\n");
 
         }
 
