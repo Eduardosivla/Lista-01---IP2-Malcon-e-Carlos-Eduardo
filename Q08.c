@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #define TAM 7
 
 int main()
