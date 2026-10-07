@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #define TAMANHO 3
 
 void desenharTabuleiro(char tabuleiro[TAMANHO][TAMANHO])
