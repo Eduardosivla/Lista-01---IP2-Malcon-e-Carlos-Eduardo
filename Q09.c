@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #define MAX 100
 
 void rotacionarMatriz(int matriz[MAX][MAX], int *linhas, int *colunas)
