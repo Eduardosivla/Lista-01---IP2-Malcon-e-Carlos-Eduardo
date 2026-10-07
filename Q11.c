@@ -56,21 +56,21 @@ int verificarVitoria(char tabuleiro[TAMANHO][TAMANHO])
     for (int i = 0; i < TAMANHO; i++)
     {
         if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2] && tabuleiro[i][0] != ' ') {
-            return 1; 
+            return 1; // Vitória em uma linha
         }
         if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i] && tabuleiro[0][i] != ' ') {
-            return 1; 
+            return 1; // Vitória em uma coluna
         }
     }
     if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2] && tabuleiro[0][0] != ' ')
     {
-        return 1;
+        return 1; // Vitória na diagonal principal
     }
     if (tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0] && tabuleiro[0][2] != ' ')
     {
-        return 1;
+        return 1; // Vitória na diagonal secundária
     }
-    return 0;
+    return 0; // Ninguém venceu ainda
 }
 
 int verificarEmpate(char tabuleiro[TAMANHO][TAMANHO])
@@ -81,11 +81,11 @@ int verificarEmpate(char tabuleiro[TAMANHO][TAMANHO])
         {
             if (tabuleiro[i][j] == ' ')
             {
-                return 0;
+                return 0; // Ainda há espaços vazios
             }
         }
     }
-    return 1; 
+    return 1; // Tabuleiro cheio (empate)
 }
 
 int main()
@@ -93,6 +93,7 @@ int main()
     char tabuleiro[TAMANHO][TAMANHO];
     char jogadorAtual = 'X'; 
 
+    // Preenche o tabuleiro com espaços vazios
     for (int i = 0; i < TAMANHO; i++)
     {
         for (int j = 0; j < TAMANHO; j++)
@@ -107,8 +108,10 @@ int main()
     {
         desenharTabuleiro(tabuleiro);
         
+        // Pede para o jogador atual fazer a sua jogada
         fazerJogada(tabuleiro, jogadorAtual);
 
+        // Verifica se a jogada resultou em vitória
         if (verificarVitoria(tabuleiro)) 
         {
             desenharTabuleiro(tabuleiro);
@@ -116,6 +119,7 @@ int main()
             break;
         }
 
+        // Verifica se a jogada resultou em empate
         if (verificarEmpate(tabuleiro))
         {
             desenharTabuleiro(tabuleiro);
@@ -123,7 +127,16 @@ int main()
             break;
         }
         
-        jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+        // Passa a vez para o outro jogador
+        if(jogadorAtual == 'X')
+        {
+            jogadorAtual = 'O';
+        }
+
+        else
+        {
+            jogadorAtual = 'X';
+        }
     }
 
     return 0;
