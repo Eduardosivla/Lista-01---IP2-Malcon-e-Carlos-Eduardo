@@ -25,17 +25,43 @@ int tracoMatriz (int dimen, int matriz[][dimen]) {
 }   
 
 int determinante3x3 (int matriz[][3]) {
+    int det=0;
+        
+    int matriz[3][3], matAux[3][5];
 
-    int det;
-    det = matriz[0][0] * matriz[1][1] * matriz[2][2] 
-        + matriz[0][1] * matriz[1][2] * matriz[2][0]
-        + matriz[0][2] * matriz[1][0] * matriz[2][1]
-        - matriz[0][2] * matriz[1][1] * matriz[2][0]
-        - matriz[0][1] * matriz[1][0] * matriz[2][2] 
-        - matriz[0][0] * matriz[1][2] * matriz[2][1];
+        for (int i=0; i<3; i++) {
+            for (int j=0; j<3; j++) {
+                matAux[i][j] = matriz[i][j];
+            }
 
+            matAux[i][3] = matriz[i][0];
+            matAux[i][4] = matAux[i][1];
+
+        }
+        
+        for (int i=0; i<3; i++) {
+            int mult = 1;
+            for (int j=0; j<3; j++) {
+
+                mult *= matAux[i][j+i];
+
+            }
+
+            det+= mult;
+        }
+
+
+        for (int j=2; j<5; j++) {
+            int mult=1;
+            for (int i=0; i<3; i++) {
+                mult*= matAux[i][j-i];
+
+            }
+            det -= mult;
+        }
+        
         return det;
-}
+}   
 
 void matrizDeterminante (int dimen, int matriz[][dimen]) {
 
