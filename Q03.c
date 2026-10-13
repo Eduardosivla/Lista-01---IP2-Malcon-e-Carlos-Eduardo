@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Mudei o nome da função para fazer mais sentido com o que ela faz
+// obter Tamanho
 int obterTamanho (int tam) {
     do {
         printf("Informe o tamanho do Vetor: ");
@@ -16,16 +16,15 @@ int obterTamanho (int tam) {
     return tam;
 }
 
-// Juntei a leitura e a verificação na mesma função
 void preencherEVerificarVetor(int vetor[], int tam) {
 
-    // 1. Primeiro, temos de preencher o vetor com os valores do utilizador
+    // 1.  preencher o vetor com os valores do utilizador
     for(int i = 0; i < tam; i++) {
         printf("Informe o valor da posicao [%d]: ", i);
         scanf("%d", &vetor[i]);
     }
 
-    // 2. Agora sim, aplicamos a tua lógica para contar as repetições
+    // 2. lógica para contar as repetições
     for(int i = 0; i < tam; i++) {
         int jaApareceu = 0;
         int rep = 0;
