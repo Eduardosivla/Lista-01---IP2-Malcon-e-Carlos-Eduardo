@@ -63,12 +63,33 @@ int determinante3x3 (int matriz[][3]) {
         return det;
 }   
 
+int determinanteSuperior (int matriz ) {
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
 void matrizDeterminante (int dimen, int matriz[][dimen]) {
 
 int somaDPrinci=1, somaDSecun=1, determ=0;
 
     if (dimen==1) {
         printf("\nDeterminante: %d\n", matriz[0][0]);
+        return matriz[0][0];
     }
         if (dimen==2) { //determina uma matriz ondem 2x2
             printf("MATRIZ 2X2\n");
@@ -87,16 +108,15 @@ int somaDPrinci=1, somaDSecun=1, determ=0;
             determ += somaDPrinci - somaDSecun;
             printf("DETERMINANE: %d\n", determ);
             printf("Traço da matriz: %d\n", tracoMatriz(dimen, matriz));
+            return determ;
         }
 
         if (dimen==3) {
-            printf("[Determinante: %d]\n\n", determinante3x3(matriz));
-            printf("[Traço da matriz: %d]\n\n", tracoMatriz(dimen, matriz));
+            return determinante3x3(matriz);
         }
 
         if (dimen>=4) {
-            int matriz[dimen-1][dimen-1];
-
+           
         }
     }
 
